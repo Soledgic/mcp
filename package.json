@@ -1,0 +1,54 @@
+{
+  "name": "@soledgic/mcp",
+  "version": "0.1.1",
+  "description": "Public MCP server for Soledgic's wallet-first payment infrastructure API",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "soledgic-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsup",
+    "start": "node dist/index.js",
+    "audit:package": "node ../../scripts/audit-public-mcp-package.mjs",
+    "prepublishOnly": "npm run build && npm run audit:package"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "keywords": [
+    "soledgic",
+    "mcp",
+    "model-context-protocol",
+    "wallets",
+    "marketplaces",
+    "creator-platforms",
+    "payments"
+  ],
+  "author": "Soledgic",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soledgic/mcp.git"
+  },
+  "homepage": "https://soledgic.com/docs/mcp",
+  "bugs": {
+    "url": "https://soledgic.com/support"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.3"
+  }
+}
