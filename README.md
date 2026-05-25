@@ -1,7 +1,11 @@
 # @soledgic/mcp
 
-Public MCP (Model Context Protocol) server for Soledgic's wallet-first payment
-infrastructure API.
+MCP (Model Context Protocol) server for Soledgic — platform payment infrastructure
+for creator platforms and marketplaces.
+
+Gives AI agents (Claude, Cursor, Devin, Copilot) native access to the Soledgic
+payment layer: checkout sessions, wallet balances, creator payouts, refunds, and
+sandbox testing — without writing any glue code.
 
 This package exposes a safe subset of the public Soledgic integration surface:
 
