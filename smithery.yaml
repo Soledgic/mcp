@@ -1,0 +1,30 @@
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties:
+      apiKey:
+        type: string
+        description: >
+          Your Soledgic API key. Test keys (slk_test_*) are available
+          immediately after signup at soledgic.com/signup and work against the
+          sandbox ledger. Live keys (slk_live_*) require KYB approval.
+      allowWrites:
+        type: boolean
+        description: >
+          Set to true to enable mutating tools (create_checkout,
+          upsert_user_wallet, request_refund, sandbox helpers). Defaults to
+          false (read-only). Live keys always block writes regardless of this
+          setting.
+        default: false
+    required:
+      - apiKey
+  commandFunction: |-
+    (config) => ({
+      command: "npx",
+      args: ["-y", "@soledgic/mcp@latest"],
+      env: {
+        SOLEDGIC_API_KEY: config.apiKey,
+        SOLEDGIC_ALLOW_WRITES: config.allowWrites ? "true" : "false"
+      }
+    })
